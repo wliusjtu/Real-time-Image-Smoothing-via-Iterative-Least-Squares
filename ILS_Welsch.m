@@ -19,7 +19,9 @@
 
 function U =ILS_Welsch(F, lambda, gamma, iter)
 
-c =  2;
+F = single(F); % 'single' precision is very important to reduce the computational cost
+
+c = 2;
 
 [N, M, D] = size(F);
 sizeI2D = [N, M];
@@ -31,8 +33,7 @@ Denormin = abs(otfFx).^2 + abs(otfFy ).^2;
 Denormin = repmat(Denormin, [1, 1, D]);
 Denormin = 1 + 0.5 * c * lambda * Denormin;
 
-F = single(F);     % very important to reduce the computational cost
-U = F;               % smoothed image
+U = F;  % smoothed image
 
 Normin1 = fft2(U);
 

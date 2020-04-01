@@ -20,6 +20,8 @@
 
 function U =ILS_LNorm_GPU(F, lambda, p, eps, iter)
 
+F = gpuArray(single(F));  % 'single' precision is very important to reduce the computational cost
+
 gamma = 0.5 * p - 1;
 c =  p * eps^gamma;
 
@@ -33,8 +35,7 @@ Denormin = abs(otfFx).^2 + abs(otfFy ).^2;
 Denormin = repmat(Denormin, [1, 1, D]);
 Denormin = 1 + 0.5 * c * lambda * Denormin;
 
-F = gpuArray(single(F));      % very important to reduce the computational cost
-U = F;                                % smoothed image
+U = F;  % smoothed image
 
 Normin1 = fft2(U);
 
