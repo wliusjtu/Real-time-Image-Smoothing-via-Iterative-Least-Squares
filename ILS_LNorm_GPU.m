@@ -1,3 +1,13 @@
+%   Distribution code Version 1.0 -- 02/31/2020 by Wei Liu Copyright 2020
+%
+%   The code is created based on the method described in the following paper 
+%   [1] "Real-time Image Smoothing via Iterative Least Squares", Wei Liu, Pingping Zhang, 
+%        Xiaolin Huang, Jie Yang, Chunhua Shen and Ian Reid, ACM Transactions on Graphics, 
+%        presented at SIGGRAPH 2020.
+%  
+%   The code and the algorithm are for non-comercial use only.
+
+
 %  ---------------------- Input------------------------
 %  F:              input image, can be gray image or RGB color image
 %  lambda:     \lambda in Eq.(1), control smoothing strength
@@ -26,9 +36,9 @@ Denormin = 1 + 0.5 * c * lambda * Denormin;
 F = gpuArray(single(F));      % very important to reduce the computational cost
 U = F;                                % smoothed image
 
+Normin1 = fft2(U);
+
 for k = 1: iter
-    
-    Normin1 = fft2(U);
     
     % Intermediate variables \mu update, in x-axis and y-axis direction
     u_h = [diff(U,1,2), U(:,1,:) - U(:,end,:)];
@@ -41,8 +51,10 @@ for k = 1: iter
     Normin2_h = [mu_h(:,end,:) - mu_h(:, 1,:), - diff(mu_h,1,2)];
     Normin2_v = [mu_v(end,:,:) - mu_v(1, :,:); - diff(mu_v,1,1)];
     
-    U = (Normin1 + 0.5 * lambda * (fft2(Normin2_h + Normin2_v))) ./ Denormin;
-    U = real(ifft2(U));
+    FU = (Normin1 + 0.5 * lambda * (fft2(Normin2_h + Normin2_v))) ./ Denormin;
+    U = real(ifft2(FU));
+
+    Normin1 = FU;  % This helps to further enlarge the smoothing strength
     
 end
 
