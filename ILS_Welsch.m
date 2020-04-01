@@ -3,7 +3,7 @@
 %   The code is created based on the method described in the following paper 
 %   [1] "Real-time Image Smoothing via Iterative Least Squares", Wei Liu, Pingping Zhang, 
 %        Xiaolin Huang, Jie Yang, Chunhua Shen and Ian Reid, ACM Transactions on Graphics, 
-%        presented at SIGGRAPH 2020.
+%        presented at SIGGRAPH 2020. 
 %  
 %   The code and the algorithm are for non-comercial use only.
 
