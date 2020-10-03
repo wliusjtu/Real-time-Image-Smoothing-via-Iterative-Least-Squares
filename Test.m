@@ -22,7 +22,8 @@ lambda = 30;
 gamma = 5/255;
 iter = 10;
 
-Smoothed = ILS_Welsch(Img, lambda, iter);
+Smoothed = ILS_Welsch(Img, lambda, gamma, iter);
+% Smoothed = ILS_Welsch_GPU(Img, lambda, gamma, iter);
 
 figure; imshow(Img)
 figure; imshow(Smoothed)
