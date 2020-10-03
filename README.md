@@ -6,6 +6,9 @@
  **Requirements：**
  CUDA library is required if running with the GPU version.
  
+ **Usage:**
+ The Test.m manuscript provides examples of the usage.
+ 
  ---------------------------------
  **Related Work:**
  1. *"Semi-global weighted least squares in image filtering.", Wei Liu, Xiaogang Chen, Chuanhua Shen, Zhi Liu, and Jie Yang. In ICCV 2017.* [Code](https://github.com/wliusjtu/Semi-Global-Weighted-Least-Squares-in-Image-Filtering)
