@@ -3,7 +3,7 @@
 
  Real-time Image Smoothing via Iterative Least Squares, Wei Liu, Pingping Zhang, Xiaolin Huang, Jie Yang, Chunhua Shen and Ian Reid 
  
- **CUDA libarary is required if running with the GPU version.** 
+ **CUDA library is required if running with the GPU version.** 
  
  ---------------------------------
  **Related Work:**
