@@ -1,7 +1,7 @@
 # Real-time Image Smoothing via Iterative Least Squares
  This is the released code for the following paper accepted to ACM Transactions on Graphics, presented at SIGGRAPH 2020
  
- Liu W, Zhang P, Huang X, Yang J, Shen C, Reid I. Real-time Image Smoothing via Iterative Least Squares. ACM Transactions on Graphics (TOG). 2020 Jun 6;39(3):1-24.
+ *"Real-time Image Smoothing via Iterative Least Squares"*. Liu W, Zhang P, Huang X, Yang J, Shen C, Reid I. ACM Transactions on Graphics (TOG), 39(3), 1-24.
  
  **Requirements：**
  CUDA library is required if running with the GPU version.
